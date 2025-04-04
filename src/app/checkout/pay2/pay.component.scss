@@ -1,0 +1,10 @@
+.phone-field {
+  ::ng-deep input,
+  ::ng-deep span,
+  ::ng-deep textarea,
+  ::ng-deep .iti,
+  ngx-intl-tel-input {
+    width: 100%;
+  }
+}
+

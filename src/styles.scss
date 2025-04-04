@@ -1,0 +1,179 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+.basket-item {
+  .p-button {
+    background-color: transparent;
+    border: none;
+    color: black;
+  }
+}
+
+.my-sidebar {
+  .p-sidebar-content {
+    position: relative;
+  }
+}
+
+.error-message {
+  color: red;
+}
+
+.iti {
+  input {
+    width: 100%;
+    height: 49.1px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db !important;
+  }
+}
+
+.pay-card {
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+
+  p {
+    width: unset !important;
+  }
+  .container {
+    min-height: 400px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card {
+    width: 500px;
+    height: 300px;
+    color: #fff;
+    cursor: pointer;
+    perspective: 1000px;
+  }
+
+  .card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+  }
+
+  .front,
+  .back {
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(45deg, #0045c7, #ff2c7d);
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px 30px;
+    border-radius: 15px;
+    overflow: hidden;
+    z-index: 1;
+    backface-visibility: hidden;
+  }
+
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .map-img {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.3;
+    z-index: -1;
+  }
+
+  .card-no {
+    font-size: 35px;
+    margin-top: 60px;
+  }
+
+  .card-holder {
+    font-size: 12px;
+  }
+
+  .name {
+    font-size: 22px;
+    margin-top: 20px;
+  }
+
+  .bar {
+    background: #222;
+    margin-left: -30px;
+    margin-right: -30px;
+    height: 60px;
+    margin-top: 10px;
+  }
+
+  .card-cvv {
+    margin-top: 20px;
+  }
+
+  .card-cvv div {
+    flex: 1;
+  }
+
+  .card-cvv img {
+    width: 100%;
+    display: block;
+    line-height: 0;
+  }
+
+  .card-cvv p {
+    background: #fff;
+    color: #000;
+    font-size: 22px;
+    padding: 10px 20px;
+  }
+
+  .card-text {
+    margin-top: 30px;
+    font-size: 14px;
+  }
+
+  .signature {
+    margin-top: 30px;
+  }
+
+  .back {
+    transform: rotateY(180deg);
+  }
+
+  .card:hover .card-inner {
+  }
+}
+
+body {
+  background: linear-gradient(to right, #e3f2f9 50%, #cce7f4 50%);
+}
+.sphere {
+  width: 30px;
+  height: 30px;
+  background-color: #00aaff; /* Küre rengini buradan değiştirebilirsiniz */
+  border-radius: 50%; /* Yuvarlak yapmak için */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2),
+    0 -15px 30px rgba(255, 255, 255, 0.3); /* Derinlik için gölge */
+  transform: perspective(600px) rotateX(15deg) rotateY(15deg); /* 3D etkisi */
+}
+
+@media (max-width: 500px) {
+  .card {
+    transform: scale(0.75);
+  }
+}

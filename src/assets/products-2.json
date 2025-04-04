@@ -1,0 +1,212 @@
+[
+  {
+    "Id": 1,
+    "Category1": "Electronics",
+    "Category2": "Mobile",
+    "Category3": "Smartphone",
+    "CompanyId": 101,
+    "EmployeeId": 1001,
+    "Variants": [
+      {
+        "EcommerceProductId": 1,
+        "Name": "Variant 1",
+        "Description": "64GB, Black",
+        "Stock": 50,
+        "Price": 699,
+        "Images": [
+          "img1.png",
+          "img2.png"
+        ]
+      }
+    ]
+  },
+  {
+    "Id": 2,
+    "Category1": "Electronics",
+    "Category2": "Mobile",
+    "Category3": "Tablet",
+    "CompanyId": 102,
+    "EmployeeId": 1002,
+    "Variants": [
+      {
+        "EcommerceProductId": 2,
+        "Name": "Variant 1",
+        "Description": "128GB, Silver",
+        "Stock": 30,
+        "Price": 499,
+        "Images": [
+          "img3.png",
+          "img4.png"
+        ]
+      }
+    ]
+  },
+  {
+    "Id": 3,
+    "Category1": "Electronics",
+    "Category2": "Laptop",
+    "Category3": "Gaming",
+    "CompanyId": 103,
+    "EmployeeId": 1003,
+    "Variants": [
+      {
+        "EcommerceProductId": 3,
+        "Name": "Variant 1",
+        "Description": "16GB RAM, 512GB SSD",
+        "Stock": 20,
+        "Price": 1299,
+        "Images": [
+          "img5.png",
+          "img6.png"
+        ]
+      }
+    ]
+  },
+  {
+    "Id": 4,
+    "Category1": "Electronics",
+    "Category2": "Laptop",
+    "Category3": "Ultrabook",
+    "CompanyId": 104,
+    "EmployeeId": 1004,
+    "Variants": [
+      {
+        "EcommerceProductId": 4,
+        "Name": "Variant 1",
+        "Description": "8GB RAM, 256GB SSD",
+        "Stock": 25,
+        "Price": 999,
+        "Images": [
+          "img7.png",
+          "img8.png"
+        ]
+      }
+    ]
+  },
+  {
+    "Id": 5,
+    "Category1": "Home Appliances",
+    "Category2": "Kitchen",
+    "Category3": "Refrigerator",
+    "CompanyId": 105,
+    "EmployeeId": 1005,
+    "Variants": [
+      {
+        "EcommerceProductId": 5,
+        "Name": "Variant 1",
+        "Description": "500L, Silver",
+        "Stock": 10,
+        "Price": 899,
+        "Images": [
+          "img9.png",
+          "img10.png"
+        ]
+      }
+    ]
+  },
+  {
+    "Id": 6,
+    "Category1": "Home Appliances",
+    "Category2": "Kitchen",
+    "Category3": "Microwave",
+    "CompanyId": 106,
+    "EmployeeId": 1006,
+    "Variants": [
+      {
+        "EcommerceProductId": 6,
+        "Name": "Variant 1",
+        "Description": "20L, White",
+        "Stock": 30,
+        "Price": 199,
+        "Images": [
+          "img11.png",
+          "img12.png"
+        ]
+      }
+    ]
+  },
+  {
+    "Id": 7,
+    "Category1": "Home Appliances",
+    "Category2": "Living Room",
+    "Category3": "Air Conditioner",
+    "CompanyId": 107,
+    "EmployeeId": 1007,
+    "Variants": [
+      {
+        "EcommerceProductId": 7,
+        "Name": "Variant 1",
+        "Description": "1.5 Ton, Inverter",
+        "Stock": 15,
+        "Price": 499,
+        "Images": [
+          "img13.png",
+          "img14.png"
+        ]
+      }
+    ]
+  },
+  {
+    "Id": 8,
+    "Category1": "Home Appliances",
+    "Category2": "Living Room",
+    "Category3": "Heater",
+    "CompanyId": 108,
+    "EmployeeId": 1008,
+    "Variants": [
+      {
+        "EcommerceProductId": 8,
+        "Name": "Variant 1",
+        "Description": "Oil-filled, 1500W",
+        "Stock": 40,
+        "Price": 79,
+        "Images": [
+          "img15.png",
+          "img16.png"
+        ]
+      }
+    ]
+  },
+  {
+    "Id": 9,
+    "Category1": "Electronics",
+    "Category2": "Mobile",
+    "Category3": "Smartwatch",
+    "CompanyId": 109,
+    "EmployeeId": 1009,
+    "Variants": [
+      {
+        "EcommerceProductId": 9,
+        "Name": "Variant 1",
+        "Description": "42mm, Black",
+        "Stock": 60,
+        "Price": 299,
+        "Images": [
+          "img17.png",
+          "img18.png"
+        ]
+      }
+    ]
+  },
+  {
+    "Id": 10,
+    "Category1": "Electronics",
+    "Category2": "Laptop",
+    "Category3": "Business",
+    "CompanyId": 110,
+    "EmployeeId": 1010,
+    "Variants": [
+      {
+        "EcommerceProductId": 10,
+        "Name": "Variant 1",
+        "Description": "8GB RAM, 512GB SSD",
+        "Stock": 20,
+        "Price": 1199,
+        "Images": [
+          "img19.png",
+          "img20.png"
+        ]
+      }
+    ]
+  }
+]

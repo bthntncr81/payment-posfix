@@ -1,0 +1,149 @@
+[
+  {
+    "Id": 1,
+    "Category1": "Electronics",
+    "Category2": "Mobile",
+    "Category3": "Smartphone",
+    "CompanyId": 101,
+    "EmployeeId": 201,
+    "Name": "Smartphone A",
+    "Description": "Latest 5G smartphone with advanced features.",
+    "Images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx4mMW_Divxb_g9uGqxp0x8tEEwm1FoY3IjQ&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx4mMW_Divxb_g9uGqxp0x8tEEwm1FoY3IjQ&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx4mMW_Divxb_g9uGqxp0x8tEEwm1FoY3IjQ&s"
+    ],
+    "Stock": 100,
+    "Price": 999
+  },
+  {
+    "Id": 2,
+    "Category1": "Electronics",
+    "Category2": "Mobile",
+    "Category3": "Feature Phone",
+    "CompanyId": 102,
+    "EmployeeId": 202,
+    "Name": "Feature Phone B",
+    "Description": "<p>This <strong>reliable feature phone</strong> offers simplicity and long-lasting battery life. It’s the ideal choice for those who need a basic phone with essential functions. Stay connected with ease, thanks to its intuitive interface and sturdy design.</p><ul><li>Long Battery Life</li><li>Easy-to-Use Interface</li><li>Sturdy Build</li><li>Essential Features</li></ul>",
+    "Images": [
+      "https://cdn.akakce.com/z/samsung/samsung-galaxy-a54-128-gb-beyaz.jpg",
+      "https://cdn.akakce.com/z/samsung/samsung-galaxy-a54-128-gb-beyaz.jpg"
+    ],
+    "Stock": 200,
+    "Price": 49
+  },
+  {
+    "Id": 3,
+    "Category1": "Electronics",
+    "Category2": "Laptop",
+    "Category3": "Gaming Laptop",
+    "CompanyId": 103,
+    "EmployeeId": 203,
+    "Name": "Gaming Laptop C",
+    "Description": "High-performance laptop for gaming enthusiasts.",
+    "Images": [
+      "https://www.gaming.gen.tr/wp-content/uploads/2024/05/msi-cyborg-15-a13vf-1204xtr-intel-core-i5-13420h-16gb-ddr5-1tb-ssd-rtx4060-8gb-15-6-inc-full-hd-144hz-freedos-gaming-laptop-1.webp",
+      "https://www.gaming.gen.tr/wp-content/uploads/2024/05/msi-cyborg-15-a13vf-1204xtr-intel-core-i5-13420h-16gb-ddr5-1tb-ssd-rtx4060-8gb-15-6-inc-full-hd-144hz-freedos-gaming-laptop-1.webp"
+    ],
+    "Stock": 50,
+    "Price": 1499
+  },
+  {
+    "Id": 4,
+    "Category1": "Electronics",
+    "Category2": "Mobile",
+    "Category3": "Smartphone",
+    "CompanyId": 101,
+    "EmployeeId": 201,
+    "Name": "Smartphone A",
+    "Description": "Latest 5G smartphone with advanced features.",
+    "Images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx4mMW_Divxb_g9uGqxp0x8tEEwm1FoY3IjQ&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx4mMW_Divxb_g9uGqxp0x8tEEwm1FoY3IjQ&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx4mMW_Divxb_g9uGqxp0x8tEEwm1FoY3IjQ&s"
+    ],
+    "Stock": 100,
+    "Price": 999
+  },
+  {
+    "Id": 5,
+    "Category1": "Electronics",
+    "Category2": "Mobile",
+    "Category3": "Feature Phone",
+    "CompanyId": 102,
+    "EmployeeId": 202,
+    "Name": "Feature Phone B",
+    "Description": "<p>This <strong>reliable feature phone</strong> offers simplicity and long-lasting battery life. It’s the ideal choice for those who need a basic phone with essential functions. Stay connected with ease, thanks to its intuitive interface and sturdy design.</p><ul><li>Long Battery Life</li><li>Easy-to-Use Interface</li><li>Sturdy Build</li><li>Essential Features</li></ul>",
+    "Images": [
+      "https://cdn.akakce.com/z/samsung/samsung-galaxy-a54-128-gb-beyaz.jpg",
+      "https://cdn.akakce.com/z/samsung/samsung-galaxy-a54-128-gb-beyaz.jpg"
+    ],
+    "Stock": 200,
+    "Price": 49
+  },
+  {
+    "Id": 6,
+    "Category1": "Electronics",
+    "Category2": "Laptop",
+    "Category3": "Gaming Laptop",
+    "CompanyId": 103,
+    "EmployeeId": 203,
+    "Name": "Gaming Laptop C",
+    "Description": "High-performance laptop for gaming enthusiasts.",
+    "Images": [
+      "https://www.gaming.gen.tr/wp-content/uploads/2024/05/msi-cyborg-15-a13vf-1204xtr-intel-core-i5-13420h-16gb-ddr5-1tb-ssd-rtx4060-8gb-15-6-inc-full-hd-144hz-freedos-gaming-laptop-1.webp",
+      "https://www.gaming.gen.tr/wp-content/uploads/2024/05/msi-cyborg-15-a13vf-1204xtr-intel-core-i5-13420h-16gb-ddr5-1tb-ssd-rtx4060-8gb-15-6-inc-full-hd-144hz-freedos-gaming-laptop-1.webp"
+    ],
+    "Stock": 50,
+    "Price": 1499
+  },
+  {
+    "Id": 7,
+    "Category1": "Electronics",
+    "Category2": "Mobile",
+    "Category3": "Smartphone",
+    "CompanyId": 101,
+    "EmployeeId": 201,
+    "Name": "Smartphone A",
+    "Description": "Latest 5G smartphone with advanced features.",
+    "Images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx4mMW_Divxb_g9uGqxp0x8tEEwm1FoY3IjQ&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx4mMW_Divxb_g9uGqxp0x8tEEwm1FoY3IjQ&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx4mMW_Divxb_g9uGqxp0x8tEEwm1FoY3IjQ&s"
+    ],
+    "Stock": 100,
+    "Price": 999
+  },
+  {
+    "Id": 8,
+    "Category1": "Electronics",
+    "Category2": "Mobile",
+    "Category3": "Feature Phone",
+    "CompanyId": 102,
+    "EmployeeId": 202,
+    "Name": "Feature Phone B",
+    "Description": "<p>This <strong>reliable feature phone</strong> offers simplicity and long-lasting battery life. It’s the ideal choice for those who need a basic phone with essential functions. Stay connected with ease, thanks to its intuitive interface and sturdy design.</p><ul><li>Long Battery Life</li><li>Easy-to-Use Interface</li><li>Sturdy Build</li><li>Essential Features</li></ul>",
+    "Images": [
+      "https://cdn.akakce.com/z/samsung/samsung-galaxy-a54-128-gb-beyaz.jpg",
+      "https://cdn.akakce.com/z/samsung/samsung-galaxy-a54-128-gb-beyaz.jpg"
+    ],
+    "Stock": 200,
+    "Price": 49
+  },
+  {
+    "Id": 9,
+    "Category1": "Electronics",
+    "Category2": "Laptop",
+    "Category3": "Gaming Laptop",
+    "CompanyId": 103,
+    "EmployeeId": 203,
+    "Name": "Gaming Laptop C",
+    "Description": "High-performance laptop for gaming enthusiasts.",
+    "Images": [
+      "https://www.gaming.gen.tr/wp-content/uploads/2024/05/msi-cyborg-15-a13vf-1204xtr-intel-core-i5-13420h-16gb-ddr5-1tb-ssd-rtx4060-8gb-15-6-inc-full-hd-144hz-freedos-gaming-laptop-1.webp",
+      "https://www.gaming.gen.tr/wp-content/uploads/2024/05/msi-cyborg-15-a13vf-1204xtr-intel-core-i5-13420h-16gb-ddr5-1tb-ssd-rtx4060-8gb-15-6-inc-full-hd-144hz-freedos-gaming-laptop-1.webp"
+    ],
+    "Stock": 50,
+    "Price": 1499
+  }
+]
