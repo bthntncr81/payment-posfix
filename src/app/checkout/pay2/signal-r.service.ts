@@ -10,14 +10,14 @@ export class SignalRService {
 
   constructor(private http: HttpClient) {}
 
-  getOrder(id: number, projectId: number) {
+  getUser(mail: string) {
     return this.http.get(
-      "https://order.scald.shop/orders/" + id + "/" + projectId
+      "https://restapi.posfixmenu.com/api/User/UserDetail/" + mail
     );
   }
-  getPaymentInfo(projectId: number) {
-    return this.http.get(
-      "https://order.scald.shop/payment-methods/" + projectId
+  paymentDone(model: PaymentDone) {
+    return this.http.post(
+      "https://restapi.posfixmenu.com/api/Payment/PaymentDone" , model
     );
   }
   startConnection = () => {
@@ -46,4 +46,11 @@ export class SignalRService {
       updateStatus(res);
     });
   };
+}
+
+export class PaymentDone {
+  userId: number;
+  transactionId: number;
+  subscriptionType: number;
+  amount: number;
 }

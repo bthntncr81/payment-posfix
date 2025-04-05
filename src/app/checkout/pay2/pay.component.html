@@ -1,21 +1,40 @@
 <div *ngIf="!(onProcess && html)" class="container">
   <div class="row" style="height: 100vh">
     <div
-      class="col-lg-6 px-1 px-lg-5"
+      class="col-lg-12 px-1 px-lg-5"
       style="border-right: 1px solid transparent"
     >
       <form
+        style="max-width: 500px; margin: auto"
         *ngIf="!isError && !isReponseDone"
         [formGroup]="checkoutForm"
         (ngSubmit)="onSubmit()"
       >
-        <div class="pay-card">
+        <div
+          class="pay-card"
+          style="border: none; border-radius: 15px; background: transparent"
+        >
           <div class="">
-            <div class="card" style="border: none">
-              <div class="card-inner" id="card-naber">
+            <div
+              class="card"
+              style="
+                border: none;
+                border-radius: 15px;
+
+                background: transparent;
+              "
+            >
+              <div
+                class="card-inner"
+                style="
+                  box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+                  border-radius: 15px;
+                "
+                id="card-naber"
+              >
                 <div class="front">
                   <img
-                    src="assets/iyzico_ile_ode_white.png"
+                    src="https://posfixmenu.com/assets/images/logo-dark.png"
                     style="
                       top: 0;
                       bottom: 0;
@@ -45,8 +64,8 @@
                     <p>{{ card16 }}</p>
                   </div>
                   <div class="row card-holder">
-                    <p>CARD HOLDER</p>
-                    <p>VALID TILL</p>
+                    <p style="font-weight: bold">KART SAHİBİ</p>
+                    <p style="font-weight: bold">SON GEÇERLİLİK TARİHİ</p>
                   </div>
                   <div class="row name">
                     <p>{{ name }}</p>
@@ -58,7 +77,7 @@
                   <div class="row card-cvv">
                     <div>
                       <img
-                        src="assets/iyzico_ile_ode_white.png"
+                        src="https://posfixmenu.com/assets/images/logo-dark.png"
                         style="
                           top: 0;
                           bottom: 0;
@@ -79,7 +98,7 @@
                     </p>
                   </div>
                   <div class="row signature">
-                    <p>CUSTOMER SIGNATURE</p>
+                    <!-- <p>CUSTOMER SIGNATURE</p> -->
                     <img src="assets/visa.png" width="80px" />
                   </div>
                 </div>
@@ -87,7 +106,24 @@
             </div>
           </div>
         </div>
-
+        <div
+          class="p-4 d-flex justify-content-between mb-4"
+          style="
+            color: white;
+            font-size: 18px;
+            background-color: #0da575;
+            border-radius: 12px;
+          "
+        >
+          <div>
+            <strong>Ödenecek Tutar : </strong>
+            {{ price }} TL
+          </div>
+          <div>
+            <strong>Paket: </strong>
+            {{ package_name }}
+          </div>
+        </div>
         <div
           header="Payment Card"
           class="d-flex justify-content-center m-auto"
@@ -112,7 +148,7 @@
               <label for="cardNumber">Kart Numarası</label>
               <input
                 appCreditCardNumberMask
-                placeholder="4444 4444 4444 4444"
+                placeholder="xxxx xxxx xxxx xxxx"
                 pInputText
                 id="cardNumber"
                 formControlName="cardNumber"
@@ -147,9 +183,13 @@
             <div>
               <button
                 pButton
-                style="border-radius: 6px"
+                style="
+                  border-radius: 6px;
+                  border: none;
+                  background-color: #0da575;
+                "
                 class="w-100"
-                label="Checkout"
+                label="İşlemi Tamamla"
                 type="submit"
                 icon="pi pi-credit-card"
                 iconPos="right"
@@ -159,7 +199,7 @@
         </div>
 
         <div
-          *ngIf="installmentArray.length > 0"
+          *ngIf="installmentArray && installmentArray.length > 0"
           class="text-center mt-5 mb-5 m-auto"
           style="
             width: 600px;
@@ -244,94 +284,6 @@
           "
         >
           Ödemeniz Başarıyla Alındı
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-6 px-1 px-lg-5">
-      <div class="py-5">
-        <div class="text-align-center w-100 d-flex justify-content-center mb-5">
-          <img
-            style="
-              border-radius: 12px;
-              width: 200px;
-              height: 100px;
-              object-fit: cover;
-            "
-            src="assets/scald.jpeg"
-            alt=""
-          />
-        </div>
-        <h2 class="mb-4 text-primary" style="color: #262fb9">
-          Sipariş Detayları
-        </h2>
-        <ul
-          class="list-group list-group-flush"
-          style="font-size: 24px; background-color: transparent"
-        >
-          <li class="list-group-item" style="background-color: transparent">
-            <strong>Şipariş Numarası:</strong> {{ order?.order_number }}
-          </li>
-          <li class="list-group-item" style="background-color: transparent">
-            <strong>Toplam Tutar:</strong>
-            {{ order?.grand_total }} TL
-          </li>
-        </ul>
-        <div class="mt-4">
-          <h2 class="mb-3 text-primary" style="color: #262fb9">
-            Sipariş Ürünleri
-          </h2>
-          <div class="row mb-5">
-            <div
-              *ngFor="let item of order?.items"
-              class="col-md-4"
-              style="
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-              "
-            >
-              <h5 class="card-title" style="margin-bottom: 10px">
-                {{ item.name }}
-              </h5>
-
-              <div style="position: relative">
-                <img
-                  style="
-                    object-fit: cover;
-                    height: 150px;
-                    width: 150px;
-                    border-radius: 12px;
-                    margin-bottom: 10px;
-                  "
-                  src="https://scald.shop/{{ item.menu_item_image.path }}"
-                  alt=""
-                />
-
-                <div
-                  class="sphere"
-                  style="
-                    border-radius: 50%;
-                    color: white;
-                    text-align: center;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    background-color: rgb(62, 62, 243);
-                    position: absolute;
-                    top: -10px;
-                    right: -10px;
-                  "
-                >
-                  {{ item.quantity }}
-                </div>
-              </div>
-
-              <ul class="d-flex flex-column gap-2">
-                <li class="d-flex gap-4">{{ item.grand_price }} TL</li>
-              </ul>
-            </div>
-          </div>
         </div>
       </div>
     </div>

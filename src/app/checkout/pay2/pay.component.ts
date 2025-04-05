@@ -13,7 +13,7 @@ import { PrimeNGConfig } from "primeng/api";
 import { InputNumber } from "primeng/inputnumber";
 import { CountryModel, CountryService } from "./country.service";
 import { IpService } from "./ip.service";
-import { SignalRService } from "./signal-r.service";
+import { PaymentDone, SignalRService } from "./signal-r.service";
 
 @Component({
   selector: "app-pay",
@@ -21,6 +21,22 @@ import { SignalRService } from "./signal-r.service";
   styleUrl: "./pay.component.scss",
 })
 export class PayComponent {
+  user: any;
+  price = 0;
+  package_name = "";
+  priceArray = [
+    { key: 1, amount: 7490, name: "Yıllık Starter" },
+    { key: 2, amount: 949, name: "Aylık Starter" },
+    { key: 3, amount: 9490, name: "Yıllık Professional" },
+    { key: 4, amount: 1290, name: "Aylık Professional" },
+    { key: 5, amount: 19490, name: "Yıllık Premium" },
+  ];
+  paymentDoneModel: PaymentDone = {
+    userId: 0,
+    transactionId: 0,
+    subscriptionType: 0,
+    amount: 0,
+  };
   checkoutForm!: FormGroup;
   basketProducts: any[] = [];
   totalPrice = 0;
@@ -33,7 +49,7 @@ export class PayComponent {
   CountryISO = CountryISO;
   PhoneNumberFormat = PhoneNumberFormat;
   preferredCountries: CountryISO[] = [CountryISO.Turkey];
-  expireDate: string = "12/25";
+  expireDate: string = "";
   separateDialCode = true;
   order: any;
   isSuccess = false;
@@ -56,11 +72,16 @@ export class PayComponent {
     this.signalR.paymentResult((data: any) => {
       this.isReponseDone = true;
       if (data.statu === 1) {
-        this.onProcess = false;
         this.isSuccess = true;
 
-        window.location.href =
-          "https://scald.shop/payments/iyzico/success/" + this.order.id;
+        this.signalR
+          .paymentDone(this.paymentDoneModel)
+          .subscribe((res: any) => {
+            debugger;
+            this.onProcess = false;
+
+            window.location.href = res.data;
+          });
       } else {
         this.onProcess = false;
         this.isError = true;
@@ -84,7 +105,24 @@ export class PayComponent {
 
   ngOnInit(): void {
     this.getCountries();
+    this.getUser();
+    this.price =
+      this.priceArray[
+        (this.route.snapshot.queryParams as any).packageId - 1
+      ].amount;
+    this.paymentDoneModel.subscriptionType =
+      this.priceArray[
+        (this.route.snapshot.queryParams as any).packageId - 1
+      ].key;
 
+    this.paymentDoneModel.amount =
+      this.priceArray[
+        (this.route.snapshot.queryParams as any).packageId - 1
+      ].amount;
+    this.package_name =
+      this.priceArray[
+        (this.route.snapshot.queryParams as any).packageId - 1
+      ].name;
     this.primengConfig.ripple = true;
     // Basket from localStorage
     this.checkoutForm = this.fb.group({
@@ -106,10 +144,10 @@ export class PayComponent {
       ], //done
       cardHolderName: ["", Validators.required], //done
       cardCVV: [
-        "000",
+        "",
         [Validators.required, Validators.minLength(3), Validators.maxLength(4)],
       ], //done
-      amount: [2000, [Validators.required, Validators.min(1)]], //onts
+      amount: [this.price, [Validators.required, Validators.min(1)]], //onts
       currency: ["TRY", Validators.required], //onts
       installment: [1, Validators.required], //onts
       orderNumber: [
@@ -119,14 +157,14 @@ export class PayComponent {
       ], //onts
       taxNumber: ["24956607526", Validators.required], //done
       emailAddress: [
-        "batuhanntuncerr@hotmail.com",
+        "omerbatuhantuncer.workspace@gmail.com",
         [Validators.required, Validators.email],
       ], //done
       name: ["", Validators.required], //done
       surname: ["", Validators.required], //done
       phoneNumber: ["5056916831", [Validators.required]], //done
       addressDesc: ["cart curt", Validators.required], //done
-      cityName: ["İstanbul", Validators.required], //done
+      cityName: ["Düzce", Validators.required], //done
       country: ["TUR", Validators.required], //done
       postCode: ["81650", Validators.required], //done
       taxOffice: [""], //done
@@ -139,10 +177,13 @@ export class PayComponent {
       customerIPAddress: ["1.1.1.1", Validators.required], //onts
       bankCode: ["9997", Validators.required], //onts  0046 9997
       merchantID: ["100100000", Validators.required], //onts
-      merchantUser: ["", Validators.required], //onts
-      merchantPassword: ["", Validators.required], //onts
+      merchantUser: ["VAxH2UuoOaLKcQY1Q5C7xnI9U1Hm3V0y", Validators.required], //onts
+      merchantPassword: [
+        "h9zhWxKLbkkb0f4Y0FKltAbLwgrlfWuV",
+        Validators.required,
+      ], //onts
       merchantStorekey: ["123456", Validators.required], //onts
-      testPlatform: [true, Validators.required], //onts
+      testPlatform: [false, Validators.required], //onts
     });
 
     this.getIpAddress();
@@ -184,8 +225,23 @@ export class PayComponent {
       }
     });
   }
-
-
+  getUser() {
+    this.signalR
+      .getUser((this.route.snapshot.queryParams as any).email)
+      .subscribe((res: any) => {
+        this.user = res.data;
+        this.paymentDoneModel.userId = this.user.id;
+        this.paymentDoneModel.transactionId = 1234;
+        // this.checkoutForm.get("orderNumber")!.value;
+        this.checkoutForm.get("name")?.setValue(this.user.name);
+        this.checkoutForm.get("surname")?.setValue(this.user.surname);
+        this.checkoutForm
+          .get("phoneNumber")
+          ?.setValue(this.user.phone.toString());
+        this.checkoutForm.get("taxNumber")?.setValue("11111111111");
+        this.checkoutForm.get("emailAddress")?.setValue(this.user.email);
+      });
+  }
 
   onSubmit() {
     this.checkoutForm
@@ -201,7 +257,9 @@ export class PayComponent {
           this.checkoutForm.get("merchantPassword")?.value
         }&merchantStorekey=${
           this.checkoutForm.get("merchantStorekey")?.value
-        }&orderNumber=${this.checkoutForm.get("orderNumber")?.value}`
+        }&orderNumber=${this.checkoutForm.get("orderNumber")?.value}&isTest=${
+          this.checkoutForm.get("testPlatform")?.value
+        }`
       );
 
     var nameArray = this.name.split(" ");
