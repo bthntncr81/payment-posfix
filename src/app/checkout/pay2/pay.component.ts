@@ -26,9 +26,9 @@ export class PayComponent {
   package_name = "";
   priceArray = [
     { key: 1, amount: 7490, name: "Yıllık Starter" },
-    { key: 2, amount: 949, name: "Aylık Starter" },
+    { key: 2, amount: 1249, name: "Aylık Starter" },
     { key: 3, amount: 9490, name: "Yıllık Professional" },
-    { key: 4, amount: 1290, name: "Aylık Professional" },
+    { key: 4, amount: 1590, name: "Aylık Professional" },
     { key: 5, amount: 19490, name: "Yıllık Premium" },
   ];
   paymentDoneModel: PaymentDone = {
