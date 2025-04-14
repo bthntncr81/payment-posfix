@@ -1,290 +1,285 @@
 <div *ngIf="!(onProcess && html)" class="container">
-  <div class="row" style="height: 100vh">
-    <div
-      class="col-lg-12 px-1 px-lg-5"
-      style="border-right: 1px solid transparent"
+  <div style="border-right: 1px solid transparent">
+    <form
+      style="max-width: 500px; margin: auto"
+      *ngIf="!isError && !isReponseDone"
+      [formGroup]="checkoutForm"
+      (ngSubmit)="onSubmit()"
     >
-      <form
-        style="max-width: 500px; margin: auto"
-        *ngIf="!isError && !isReponseDone"
-        [formGroup]="checkoutForm"
-        (ngSubmit)="onSubmit()"
+      <div
+        class="pay-card"
+        style="
+          border: none;
+          border-radius: 15px;
+          background: transparent;
+          margin-top: 40px !important;
+        "
       >
-        <div
-          class="pay-card"
-          style="border: none; border-radius: 15px; background: transparent"
-        >
-          <div class="">
-            <div
-              class="card"
-              style="
-                border: none;
-                border-radius: 15px;
-
-                background: transparent;
-              "
-            >
-              <div
-                class="card-inner"
-                style="
-                  box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
-                  border-radius: 15px;
-                "
-                id="card-naber"
-              >
-                <div class="front">
-                  <img
-                    src="https://posfixmenu.com/assets/images/logo-dark.png"
-                    style="
-                      top: 0;
-                      bottom: 0;
-                      display: flex;
-                      align-items: center;
-                      justify-content: center;
-                      margin: auto;
-                    "
-                    class="map-img"
-                  />
-                  <div class="row">
-                    <img
-                      src="assets/iyzico_ile_ode_white.png"
-                      style="width: 60px"
-                      width="60px"
-                    />
-                    <img
-                      src="assets/visa.png"
-                      style="width: 60px"
-                      width="60px"
-                    />
-                  </div>
-                  <div class="row card-no">
-                    <p>{{ card4 }}</p>
-                    <p>{{ card8 }}</p>
-                    <p>{{ card12 }}</p>
-                    <p>{{ card16 }}</p>
-                  </div>
-                  <div class="row card-holder">
-                    <p style="font-weight: bold">KART SAHİBİ</p>
-                    <p style="font-weight: bold">SON GEÇERLİLİK TARİHİ</p>
-                  </div>
-                  <div class="row name">
-                    <p>{{ name }}</p>
-                    <p>{{ expireMonth }} / {{ expireYear }}</p>
-                  </div>
-                </div>
-                <div class="back">
-                  <div class="bar"></div>
-                  <div class="row card-cvv">
-                    <div>
-                      <img
-                        src="https://posfixmenu.com/assets/images/logo-dark.png"
-                        style="
-                          top: 0;
-                          bottom: 0;
-                          display: flex;
-                          align-items: center;
-                          justify-content: center;
-                          margin: auto;
-                        "
-                        class="map-img"
-                      />
-                    </div>
-                    <p>{{ cvv }}</p>
-                  </div>
-                  <div class="row card-text">
-                    <p style="visibility: hidden">
-                      this is a virtual card design using HTML and CSS. You can
-                      aslo design something like this.
-                    </p>
-                  </div>
-                  <div class="row signature">
-                    <!-- <p>CUSTOMER SIGNATURE</p> -->
-                    <img src="assets/visa.png" width="80px" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="p-4 d-flex justify-content-between mb-4"
-          style="
-            color: white;
-            font-size: 18px;
-            background-color: #0da575;
-            border-radius: 12px;
-          "
-        >
-          <div>
-            <strong>Ödenecek Tutar : </strong>
-            {{ price }} TL
-          </div>
-          <div>
-            <strong>Paket: </strong>
-            {{ package_name }}
-          </div>
-        </div>
-        <div
-          header="Payment Card"
-          class="d-flex justify-content-center m-auto"
-          style="
-            width: 100%;
-            border: 1px solid rgb(181, 180, 180);
-            padding: 1.5rem 1.5rem;
-            border-radius: 12px;
-          "
-        >
-          <div class="row gx-4 gy-4" st>
-            <div class="mt-4">
-              <label for="cardHolderName">Kart Sahibi Adı Soyadı</label>
-              <input
-                pInputText
-                id="cardHolderName"
-                formControlName="cardHolderName"
-                class="form-control"
-              />
-            </div>
-            <div class="mt-4">
-              <label for="cardNumber">Kart Numarası</label>
-              <input
-                appCreditCardNumberMask
-                placeholder="xxxx xxxx xxxx xxxx"
-                pInputText
-                id="cardNumber"
-                formControlName="cardNumber"
-                class="form-control"
-              />
-            </div>
-
-            <div class="col-lg-6">
-              <div class="d-flex flex-column">
-                <label for="expireYear">Son Kullanma Tarihi</label>
-                <input
-                  pInputText
-                  appCreditCardExpiryDateMask
-                  id="expiryYear"
-                  [(ngModel)]="expireDate"
-                  [ngModelOptions]="{ standalone: true }"
-                />
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="d-flex flex-column">
-                <label for="cvc">CVC</label>
-                <p-inputNumber
-                  #inputNumberElement
-                  class="cvv"
-                  [maxlength]="3"
-                  formControlName="cardCVV"
-                ></p-inputNumber>
-              </div>
-            </div>
-
-            <div>
-              <button
-                pButton
-                style="
-                  border-radius: 6px;
-                  border: none;
-                  background-color: #0da575;
-                "
-                class="w-100"
-                label="İşlemi Tamamla"
-                type="submit"
-                icon="pi pi-credit-card"
-                iconPos="right"
-              ></button>
-            </div>
-          </div>
-        </div>
-
-        <div
-          *ngIf="installmentArray && installmentArray.length > 0"
-          class="text-center mt-5 mb-5 m-auto"
-          style="
-            width: 600px;
-            border: 1px solid rgb(181, 180, 180);
-            padding: 1rem 1.5rem;
-            border-radius: 12px;
-          "
-        >
-          <h3>Taksit Seçenekleri</h3>
+        <div class="">
           <div
-            *ngFor="let item of installmentArray"
-            class="d-flex m-auto gap-4 mt-3 mb-3 p-4"
-            style="border: 1px solid rgb(177, 177, 177); border-radius: 12px"
+            class="card"
+            style="border: none; border-radius: 15px; background: transparent"
           >
-            <div class="d-flex flex-column justify-content-center">
-              <p-radioButton
-                name="installment"
-                [value]="item.count"
-                formControlName="installment"
-                inputId="installment+{{ item.count }}"
-              />
-            </div>
-
-            <div class="d-flex flex-column justify-content-center">
-              <strong> Taksit Sayısı</strong>
-              <span class="text-center">{{ item.count }}</span>
-            </div>
-
-            <div class="d-flex flex-column justify-content-center">
-              <strong> Taksit Başı Tutar </strong>
-              <span class="text-center">
-                {{
-                  (amount * ((100 + item.customerCostCommissionRate) / 100)) /
-                    item.count | number : "1.2-2"
-                }}</span
-              >
-            </div>
-            <div class="d-flex flex-column justify-content-center">
-              <strong>Toplam Ödenecek Tutar </strong>
-              <span class="text-center">{{
-                amount * ((100 + item.customerCostCommissionRate) / 100)
-                  | number : "1.2-2"
-              }}</span>
+            <div
+              class="card-inner"
+              style="
+                box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+                border-radius: 15px;
+              "
+              id="card-naber"
+            >
+              <div class="front">
+                <img
+                  src="https://posfixmenu.com/assets/images/logo-dark.png"
+                  style="
+                    top: 0;
+                    bottom: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: auto;
+                  "
+                  class="map-img"
+                />
+                <div class="row">
+                  <img
+                    src="assets/iyzico_ile_ode_white.png"
+                    style="width: 60px"
+                    width="60px"
+                  />
+                  <img src="assets/visa.png" style="width: 60px" width="60px" />
+                </div>
+                <div class="row card-no">
+                  <p>{{ card4 }}</p>
+                  <p>{{ card8 }}</p>
+                  <p>{{ card12 }}</p>
+                  <p>{{ card16 }}</p>
+                </div>
+                <div class="row card-holder">
+                  <p style="font-weight: bold">KART SAHİBİ</p>
+                  <p style="font-weight: bold">SON GEÇERLİLİK TARİHİ</p>
+                </div>
+                <div class="row name">
+                  <p>{{ name }}</p>
+                  <p>{{ expireMonth }} / {{ expireYear }}</p>
+                </div>
+              </div>
+              <div class="back">
+                <div class="bar"></div>
+                <div class="row card-cvv">
+                  <div>
+                    <img
+                      src="https://posfixmenu.com/assets/images/logo-dark.png"
+                      style="
+                        top: 0;
+                        bottom: 0;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin: auto;
+                      "
+                      class="map-img"
+                    />
+                  </div>
+                  <p>{{ cvv }}</p>
+                </div>
+                <div class="row card-text">
+                  <p style="visibility: hidden">
+                    this is a virtual card design using HTML and CSS. You can
+                    aslo design something like this.
+                  </p>
+                </div>
+                <div class="row signature">
+                  <!-- <p>CUSTOMER SIGNATURE</p> -->
+                  <img src="assets/visa.png" width="80px" />
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </form>
-
-      <div *ngIf="isReponseDone && isError">
-        <div class="d-flex justify-content-center mt-5">
-          <i class="pi pi-times" style="color: red; font-size: 124px"></i>
+      </div>
+      <div
+        class="p-4 d-flex justify-content-between mb-4"
+        style="
+          color: white;
+          font-size: 18px;
+          background-color: #0da575;
+          border-radius: 12px;
+        "
+      >
+        <div>
+          <strong>Ödenecek Tutar : </strong>
+          {{ price }} TL
         </div>
+        <div>
+          <strong>Paket: </strong>
+          {{ package_name }}
+        </div>
+      </div>
+      <div
+        header="Payment Card"
+        class="d-flex justify-content-center m-auto"
+        style="
+          width: 100%;
+          border: 1px solid rgb(181, 180, 180);
+          padding: 1.5rem 1.5rem;
+          border-radius: 12px;
+        "
+      >
+        <div class="row gx-4 gy-4" st>
+          <div class="mt-4">
+            <label for="cardHolderName">Kart Sahibi Adı Soyadı</label>
+            <input
+              pInputText
+              id="cardHolderName"
+              formControlName="cardHolderName"
+              class="form-control"
+            />
+          </div>
+          <div class="mt-4">
+            <label for="cardNumber">Kart Numarası</label>
+            <input
+              appCreditCardNumberMask
+              placeholder="xxxx xxxx xxxx xxxx"
+              pInputText
+              id="cardNumber"
+              formControlName="cardNumber"
+              class="form-control"
+            />
+          </div>
 
-        <div
-          class="mt-4"
-          style="
-            color: red;
-            font-size: 42px;
-            display: flex;
-            justify-content: center;
-            text-align: center;
-          "
-        >
-          Ödeme Alırken Bir Hata Oluştu <br />
-          Bankanızla Iletişime Geçin
+          <div class="col-lg-6">
+            <div class="d-flex flex-column">
+              <label for="expireYear">Son Kullanma Tarihi</label>
+              <input
+                pInputText
+                appCreditCardExpiryDateMask
+                id="expiryYear"
+                [(ngModel)]="expireDate"
+                [ngModelOptions]="{ standalone: true }"
+              />
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="d-flex flex-column">
+              <label for="cvc">CVC</label>
+              <p-inputNumber
+                #inputNumberElement
+                class="cvv"
+                [maxlength]="3"
+                formControlName="cardCVV"
+              ></p-inputNumber>
+            </div>
+          </div>
+
+          <div>
+            <button
+              pButton
+              style="
+                border-radius: 6px;
+                border: none;
+                background-color: #0da575;
+                text-align: center;
+              "
+              class="w-100"
+              label="{{ !loader ? 'İşlemi Tamamla' : '' }}"
+              type="submit"
+              icon="{{ !loader ? 'pi pi-credit-card' : '' }}"
+              iconPos="right"
+            >
+              <span *ngIf="loader" class="loader m-auto"></span>
+            </button>
+          </div>
         </div>
       </div>
 
-      <div *ngIf="isReponseDone && isSuccess">
-        <div class="d-flex justify-content-center mt-5">
-          <i class="pi pi-check" style="color: green; font-size: 124px"></i>
-        </div>
-
+      <div
+        *ngIf="installmentArray && installmentArray.length > 0"
+        class="text-center mt-5 mb-5 m-auto"
+        style="
+          width: 600px;
+          border: 1px solid rgb(181, 180, 180);
+          padding: 1rem 1.5rem;
+          border-radius: 12px;
+        "
+      >
+        <h3>Taksit Seçenekleri</h3>
         <div
-          class="mt-4"
-          style="
-            color: green;
-            font-size: 42px;
-            display: flex;
-            justify-content: center;
-            text-align: center;
-          "
+          *ngFor="let item of installmentArray"
+          class="d-flex m-auto gap-4 mt-3 mb-3 p-4"
+          style="border: 1px solid rgb(177, 177, 177); border-radius: 12px"
         >
-          Ödemeniz Başarıyla Alındı
+          <div class="d-flex flex-column justify-content-center">
+            <p-radioButton
+              name="installment"
+              [value]="item.count"
+              formControlName="installment"
+              inputId="installment+{{ item.count }}"
+            />
+          </div>
+
+          <div class="d-flex flex-column justify-content-center">
+            <strong> Taksit Sayısı</strong>
+            <span class="text-center">{{ item.count }}</span>
+          </div>
+
+          <div class="d-flex flex-column justify-content-center">
+            <strong> Taksit Başı Tutar </strong>
+            <span class="text-center">
+              {{
+                (amount * ((100 + item.customerCostCommissionRate) / 100)) /
+                  item.count | number : "1.2-2"
+              }}</span
+            >
+          </div>
+          <div class="d-flex flex-column justify-content-center">
+            <strong>Toplam Ödenecek Tutar </strong>
+            <span class="text-center">{{
+              amount * ((100 + item.customerCostCommissionRate) / 100)
+                | number : "1.2-2"
+            }}</span>
+          </div>
         </div>
+      </div>
+    </form>
+
+    <div *ngIf="isReponseDone && isError">
+      <div class="d-flex justify-content-center mt-5">
+        <i class="pi pi-times" style="color: red; font-size: 124px"></i>
+      </div>
+
+      <div
+        class="mt-4"
+        style="
+          color: red;
+          font-size: 42px;
+          display: flex;
+          justify-content: center;
+          text-align: center;
+        "
+      >
+        Ödeme Alırken Bir Hata Oluştu <br />
+        Bankanızla Iletişime Geçin
+      </div>
+    </div>
+
+    <div *ngIf="isReponseDone && isSuccess">
+      <div class="d-flex justify-content-center mt-5">
+        <i class="pi pi-check" style="color: green; font-size: 124px"></i>
+      </div>
+
+      <div
+        class="mt-4"
+        style="
+          color: green;
+          font-size: 26px;
+          display: flex;
+          justify-content: center;
+          text-align: center;
+        "
+      >
+        Ödemeniz Başarıyla Alındı Erişim Bilgileriniz İşlemleriniz
+        Tamamlandıktan Sonra Mail Adresinize İletilecektir
       </div>
     </div>
   </div>
